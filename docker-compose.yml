@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  db:
+    image: mysql:native_password
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=Y6QhfXEmTetC/mhSXU+bzrj1zAvJpDGo
+      - MYSQL_ROOT_HOST=%  # This line is added to allow connections from any host
+      - MYSQL_DATABASE=nestjs_mysql_project
+    ports:
+      - 3306:3306
+    networks:
+      - mynet
+
+networks:
+  mynet:
