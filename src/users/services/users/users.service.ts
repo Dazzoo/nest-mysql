@@ -12,7 +12,7 @@ export class UsersService {
     }
 
     findUsers() {
-
+        return this.userRepository.find()
     }
 
     createUser(userDetails: CreateUserParams) {
