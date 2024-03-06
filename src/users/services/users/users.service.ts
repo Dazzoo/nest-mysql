@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { from } from 'rxjs';
 import { User } from 'src/typeorm/entities/User/User';
 import { Repository } from 'typeorm';
 import { CreateUserParams, UpdateUserParams } from 'src/utils/types/userTypes'
@@ -16,7 +15,7 @@ export class UsersService {
     }
 
     
-    async findUserById(id) {
+    async findUserById(id: number) {
         return await this.userRepository.findOne({ where: { id } });
     }
 
