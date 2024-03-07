@@ -27,11 +27,12 @@ export class ProfilesController {
             });
         }
 
-        await this.profileService.createProfile(user, createProfileDetails)
+        const userPopulated = await this.profileService.createProfile(user, createProfileDetails)
 
         return res.status(HttpStatus.OK).json({
             status: HttpStatus.OK,
-            message: `Success`
+            message: `Success`,
+            data: userPopulated
         });
     }
 }

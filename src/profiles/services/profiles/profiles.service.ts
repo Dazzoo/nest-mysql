@@ -16,6 +16,8 @@ export class ProfilesService {
         await this.profileRepository.save(newProfile)
         user.profile = newProfile;
         await this.userRepository.save(user);
+
+        return user
     }
 
 }
