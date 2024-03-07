@@ -18,7 +18,7 @@ export class User {
     @Column({ nullable: true })
     authStrategy: string;
 
-    @OneToOne(() => Profile, { eager: true })
+    @OneToOne(() => Profile,  { cascade: true, eager: true })
     @JoinColumn()
     profile: Profile;
 }

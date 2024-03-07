@@ -27,11 +27,11 @@ export class ProfilesController {
             });
         }
 
-        await this.profileService.createProfile(createProfileDetails)
+        await this.profileService.createProfile(user, createProfileDetails)
 
         return res.status(HttpStatus.OK).json({
             status: HttpStatus.OK,
-            message: `User with id: ${id} deleted successfully`
+            message: `Success`
         });
     }
 }
