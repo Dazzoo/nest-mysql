@@ -8,6 +8,8 @@ import { UsersModule } from './users/users.module';
 import { ProfilesController } from './profiles/controllers/profiles/profiles.controller';
 import { ProfilesService } from './profiles/services/profiles/profiles.service';
 import { ProfilesModule } from './profiles/profiles.module';
+import { Post } from './typeorm/entities/Post/Post';
+import { PostModule } from './posts/posts.module';
 
 @Module({
   imports: [
@@ -18,11 +20,12 @@ import { ProfilesModule } from './profiles/profiles.module';
       username: 'root',
       password: 'Y6QhfXEmTetC/mhSXU+bzrj1zAvJpDGo',
       database: 'nestjs_mysql_project',
-      entities: [User, Profile],
+      entities: [User, Profile, Post],
       synchronize: true
     }),
     UsersModule,
-    ProfilesModule
+    ProfilesModule,
+    PostModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -6,7 +6,7 @@ import { UsersService } from 'src/users/services/users/users.service'
 @Controller('profiles')
 export class ProfilesController {
     constructor(
-        private profileService: ProfilesService,
+        private readonly profileService: ProfilesService,
         private readonly usersService: UsersService,
     ) {
 
