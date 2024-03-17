@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Patch, Param, ParseIntPipe, Delete, Res, HttpStatus } from '@nestjs/common';
+import { Body, Controller, Get, Post, Patch, Param, ParseIntPipe, Delete, Res, HttpStatus, UsePipes, ValidationPipe } from '@nestjs/common';
 import CreateUserDto from 'src/users/dtos/CreateUser.dto'
 import UpdateUserDto from 'src/users/dtos/UpdateUser.dto';
 import { UsersService } from 'src/users/services/users/users.service';
@@ -15,12 +15,14 @@ export class UsersController {
     }
 
     @Post()
+    @UsePipes(new ValidationPipe())
     postUser(@Body() createUserDto: CreateUserDto) {
         return this.userService.createUser(createUserDto)
 
     }
 
     @Patch(':id')
+    @UsePipes(new ValidationPipe())
     async updateUserById(
         @Param('id', ParseIntPipe) id: number,
         @Body() updateUserDto: UpdateUserDto,

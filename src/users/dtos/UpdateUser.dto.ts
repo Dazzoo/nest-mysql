@@ -1,4 +1,10 @@
+import { IsNotEmpty } from "class-validator";
+
 export default class {
+
+    @IsNotEmpty()
     username: string;
-    password: string
+
+    @IsNotEmpty()
+    password: string;
 }
